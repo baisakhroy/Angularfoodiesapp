@@ -1,0 +1,37 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-12 search-box">
+            <div class=" searchtab">
+                <form>
+            <input class=" form-control search" [(ngModel)]="searchquery" placeholder="Search for Cuisines">
+            <button (click)="searchRestaurent(searchquery,searchQuery)" class="btn btn-primary btn-large pull-right searchbtn" >Search</button>
+            <button class="btn btn-success btn-large pull-right promobtn">Apply Promocode</button>
+                </form>
+        </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="restaurant_details">
+    <ul *ngFor="let data of restaurant_details; let i=index"><li>
+            <div class="container">
+                    <div class="row well">
+
+                            <div class="col-sm-3">
+                                    <a href="#">
+                                        <img class="img-responsoive thumbnail" src="{{data.restaurant.thumb}}" alt="How to clickportraits"></a>
+                            </div>
+                                        <div class="col-sm-9">
+
+           <h2> <a href="{{ data.restaurant.url }}">  {{ data.restaurant.name }} </a> </h2>
+           <p>{{data.restaurant.location.locality}}<br> 
+            Cost for two: {{data.restaurant.average_cost_for_two}} <br>
+            <button class="btn btn-success" id="btndanger"> Add to favorites</button></p>
+        </div></div></div>
+</li>
+    </ul>
+
+ 
+
+    </div>
+</div>
